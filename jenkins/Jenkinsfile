@@ -9,9 +9,9 @@ pipeline {
             }
         }
 
-        stage('Clone Repository') {
+        stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/ahmed1707hamed-tech/telemedicine-devops-project.git'
+                checkout scm
             }
         }
 
