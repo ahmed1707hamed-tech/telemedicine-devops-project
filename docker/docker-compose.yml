@@ -1,8 +1,9 @@
+version: "3.9"
+
 services:
 
   nginx:
-    build:
-      context: ../nginx
+    image: ahmed7amed9/telemedicine-nginx:latest
     container_name: telemedicine_nginx
     ports:
       - "80:80"
@@ -11,10 +12,10 @@ services:
       - backend
     networks:
       - app_network
+    restart: always
 
   frontend:
-    build:
-      context: ../frontend
+    image: ahmed7amed9/telemedicine-frontend:latest
     container_name: telemedicine_frontend
     ports:
       - "3000:3000"
@@ -22,10 +23,10 @@ services:
       - backend
     networks:
       - app_network
+    restart: always
 
   backend:
-    build:
-      context: ../backend
+    image: ahmed7amed9/telemedicine-backend:latest
     container_name: telemedicine_backend
     ports:
       - "8000:8000"
@@ -33,9 +34,9 @@ services:
       - db
     environment:
       DATABASE_URL: postgresql://postgres:password@db:5432/telemedicine
-    restart: always
     networks:
       - app_network
+    restart: always
 
   db:
     image: postgres:15
@@ -50,6 +51,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - app_network
+    restart: always
 
 volumes:
   postgres_data:
