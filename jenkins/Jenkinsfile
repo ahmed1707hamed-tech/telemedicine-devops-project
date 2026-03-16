@@ -24,7 +24,7 @@ pipeline {
         stage('Build Images') {
             steps {
                 dir('docker') {
-                    sh 'docker compose build --parallel'
+                    sh 'docker-compose build --parallel'
                 }
             }
         }
@@ -32,7 +32,7 @@ pipeline {
         stage('Start Containers') {
             steps {
                 dir('docker') {
-                    sh 'docker compose up -d backend frontend nginx db'
+                    sh 'docker-compose up -d backend frontend nginx db'
                 }
             }
         }

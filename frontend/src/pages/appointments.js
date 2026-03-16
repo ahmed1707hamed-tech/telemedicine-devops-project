@@ -34,13 +34,13 @@ export default function Appointments() {
         <title>Appointments | Ahmed Hamed</title>
       </Head>
 
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
         <div>
-          <h1 className="text-3xl font-black text-white tracking-tight">Appointments Registry</h1>
-          <p className="text-slate-400 font-medium">Manage and monitor all patient sessions.</p>
+          <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight">Appointments Registry</h1>
+          <p className="text-slate-400 font-medium text-sm md:text-base">Manage and monitor all patient sessions.</p>
         </div>
         
-        <button className="flex items-center gap-2 px-6 py-3 bg-[#1e293b] border border-slate-700 text-slate-300 rounded-xl hover:text-white hover:border-slate-600 transition-all font-bold text-sm">
+        <button className="flex items-center justify-center w-full md:w-auto gap-2 px-6 py-4 md:py-3 bg-[#1e293b] border border-slate-700 text-slate-300 rounded-xl hover:text-white hover:border-slate-600 transition-all font-bold text-sm touch-manipulation active:scale-[0.98]">
           <Download size={18} />
           EXPORT CSV
         </button>
@@ -52,12 +52,12 @@ export default function Appointments() {
           <input 
             type="text" 
             placeholder="Search by patient or doctor..." 
-            className="w-full pl-12 pr-6 py-4 bg-[#1e293b] border border-slate-700 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all text-slate-100 placeholder:text-slate-600 font-medium"
+            className="w-full pl-12 pr-6 py-4 bg-[#1e293b] border border-slate-700 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all text-slate-100 placeholder:text-slate-600 font-medium touch-manipulation"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <button className="flex items-center justify-center gap-2 px-6 py-4 bg-[#1e293b] border border-slate-700 text-slate-300 rounded-xl hover:bg-slate-700 transition-all font-bold text-sm">
+        <button className="flex items-center justify-center gap-2 px-6 py-4 bg-[#1e293b] border border-slate-700 text-slate-300 rounded-xl hover:bg-slate-700 transition-all font-bold text-sm touch-manipulation active:scale-[0.98] w-full md:w-auto">
           <Filter size={20} />
           FILTERS
         </button>

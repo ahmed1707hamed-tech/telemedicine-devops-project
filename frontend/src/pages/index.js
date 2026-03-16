@@ -49,16 +49,16 @@ export default function Dashboard() {
         <title>Dashboard | Ahmed Hamed</title>
       </Head>
 
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
         <div>
-          <h1 className="text-3xl font-black text-white tracking-tight">Dashboard Overview</h1>
-          <p className="text-slate-400 font-medium mt-1">Status Report for Administrator: Ahmed Hamed</p>
+          <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight">Dashboard Overview</h1>
+          <p className="text-slate-400 font-medium mt-1 text-sm md:text-base">Status Report for Administrator: Ahmed Hamed</p>
         </div>
         
         <button 
           onClick={fetchDashboardData}
           disabled={loading}
-          className="flex items-center gap-2 px-6 py-3 bg-slate-800 border border-slate-700 text-slate-300 rounded-xl hover:text-blue-400 hover:border-blue-500 transition-all font-bold text-sm"
+          className="flex items-center justify-center w-full md:w-auto gap-2 px-6 py-4 md:py-3 bg-slate-800 border border-slate-700 text-slate-300 rounded-xl hover:text-blue-400 hover:border-blue-500 transition-all font-bold text-sm touch-manipulation active:scale-[0.98]"
         >
           <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
           REFRESH

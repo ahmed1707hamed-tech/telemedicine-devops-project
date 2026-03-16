@@ -45,10 +45,11 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
             </span>
           </div>
           <button 
-            className="md:hidden text-slate-400 hover:text-white transition-colors"
+            className="md:hidden text-slate-400 hover:text-white transition-colors p-2 -mr-2 rounded-lg active:bg-slate-800"
             onClick={() => setIsOpen(false)}
+            aria-label="Close Sidebar"
           >
-            <X size={24} />
+            <X size={28} />
           </button>
         </div>
 

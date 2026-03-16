@@ -18,9 +18,9 @@ const AppointmentTable = ({ appointments }) => {
   }
 
   return (
-    <div className="bg-slate-800/40 border border-slate-700/50 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-sm">
-      <div className="overflow-x-auto">
-        <table className="w-full text-left">
+    <div className="bg-slate-800/40 border border-slate-700/50 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-sm max-w-full">
+      <div className="overflow-x-auto w-full pb-4 -mb-4">
+        <table className="w-full text-left min-w-[650px]">
           <thead>
             <tr className="bg-slate-900/50 border-b border-slate-700/50">
               <th className="px-8 py-5 text-[11px] font-bold text-slate-500 uppercase tracking-[0.1em]">Patient Info</th>

@@ -2,14 +2,15 @@ import { Bell, Search, User, Menu } from 'lucide-react';
 
 const Navbar = ({ setIsSidebarOpen }) => {
   return (
-    <header className="h-20 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800 fixed top-0 right-0 left-0 md:left-64 z-20 px-6 md:px-10 font-sans">
+    <header className="h-20 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800 fixed top-0 right-0 left-0 md:left-64 z-20 px-4 sm:px-6 md:px-10 font-sans">
       <div className="h-full flex items-center justify-between">
-        <div className="flex items-center gap-4 flex-1">
+        <div className="flex items-center gap-2 sm:gap-4 flex-1">
           <button 
-            className="md:hidden p-2 text-slate-400"
+            className="md:hidden p-2.5 -ml-2 text-slate-400 hover:text-white transition-colors rounded-xl active:bg-slate-800 touch-manipulation"
             onClick={() => setIsSidebarOpen(true)}
+            aria-label="Open Sidebar"
           >
-            <Menu size={24} />
+            <Menu size={28} />
           </button>
           <div className="relative max-w-md w-full hidden sm:block">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={18} />
@@ -21,13 +22,13 @@ const Navbar = ({ setIsSidebarOpen }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-6">
-          <button className="relative p-2 text-slate-400 hover:text-blue-400 transition-all">
-            <Bell size={20} />
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-blue-500 rounded-full"></span>
+        <div className="flex items-center gap-4 sm:gap-6">
+          <button className="relative p-2.5 text-slate-400 hover:text-blue-400 transition-all rounded-xl active:bg-slate-800 touch-manipulation">
+            <Bell size={22} />
+            <span className="absolute top-2 right-2 w-2 h-2 bg-blue-500 rounded-full border border-slate-900"></span>
           </button>
           
-          <div className="h-8 w-[1px] bg-slate-800 mx-1"></div>
+          <div className="h-8 w-[1px] bg-slate-800 mx-0 sm:mx-1"></div>
           
           <div className="flex items-center gap-4 cursor-pointer group">
             <img

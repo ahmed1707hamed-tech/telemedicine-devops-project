@@ -7,7 +7,7 @@ const AppLayout = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-slate-950 text-slate-200">
+    <div className="flex min-h-screen bg-slate-950 text-slate-200 overflow-x-hidden">
       <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
       <div className="flex-1 flex flex-col md:pl-64">
         <Navbar setIsSidebarOpen={setIsSidebarOpen} />

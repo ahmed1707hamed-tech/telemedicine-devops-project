@@ -53,14 +53,14 @@ export default function BookAppointment() {
       <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-[#1e293b] p-10 md:p-12 rounded-3xl border border-slate-700/50 shadow-2xl"
+        className="bg-[#1e293b] p-6 sm:p-10 md:p-12 rounded-3xl border border-slate-700/50 shadow-2xl mx-4 sm:mx-0"
       >
-        <div className="text-center mb-10">
+        <div className="text-center mb-8 md:mb-10">
           <div className="w-16 h-16 bg-blue-600/10 border border-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
             <Calendar size={32} />
           </div>
-          <h1 className="text-3xl font-black text-white tracking-tight">New Appointment</h1>
-          <p className="text-slate-400 mt-2 font-medium">Register a patient for clinical session.</p>
+          <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight">New Appointment</h1>
+          <p className="text-slate-400 mt-2 font-medium text-sm md:text-base">Register a patient for a clinical session.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -91,10 +91,10 @@ export default function BookAppointment() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full flex items-center justify-center gap-2 py-4 px-6 rounded-xl text-white font-black text-sm tracking-[0.1em] uppercase transition-all mt-4 ${
+            className={`w-full flex items-center justify-center gap-2 py-4 px-6 rounded-xl text-white font-black text-sm tracking-[0.1em] uppercase transition-all mt-6 md:mt-4 touch-manipulation active:scale-[0.98] ${
               loading 
                 ? 'bg-slate-700 cursor-not-allowed opacity-50' 
-                : 'bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-900/40 active:scale-[0.98]'
+                : 'bg-blue-600 hover:bg-blue-700 shadow-xl shadow-blue-900/40'
             }`}
           >
             {loading ? (
