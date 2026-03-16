@@ -1,11 +1,14 @@
 import { Bell, Search, User, Menu } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ setIsSidebarOpen }) => {
   return (
     <header className="h-20 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800 fixed top-0 right-0 left-0 md:left-64 z-20 px-6 md:px-10 font-sans">
       <div className="h-full flex items-center justify-between">
         <div className="flex items-center gap-4 flex-1">
-          <button className="md:hidden p-2 text-slate-400">
+          <button 
+            className="md:hidden p-2 text-slate-400"
+            onClick={() => setIsSidebarOpen(true)}
+          >
             <Menu size={24} />
           </button>
           <div className="relative max-w-md w-full hidden sm:block">
