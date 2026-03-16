@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        COMPOSE_DIR = 'docker'
+    }
+
     stages {
 
         stage('Clean Workspace') {
@@ -17,30 +21,47 @@ pipeline {
 
         stage('Stop Old Containers') {
             steps {
-                sh 'docker rm -f telemedicine_backend telemedicine_frontend telemedicine_nginx telemedicine_db || true'
+                sh '''
+                docker rm -f telemedicine_backend telemedicine_frontend telemedicine_nginx telemedicine_db || true
+                '''
             }
         }
 
         stage('Build Images') {
             steps {
-                dir('docker') {
-                    sh 'docker-compose build --parallel'
+                dir("${COMPOSE_DIR}") {
+                    sh '''
+                    docker compose build
+                    '''
                 }
             }
         }
 
         stage('Start Containers') {
             steps {
-                dir('docker') {
-                    sh 'docker-compose up -d backend frontend nginx db'
+                dir("${COMPOSE_DIR}") {
+                    sh '''
+                    docker compose up -d
+                    '''
                 }
             }
         }
 
-        stage('Verify') {
+        stage('Verify Containers') {
             steps {
-                sh 'docker ps'
+                sh '''
+                docker ps
+                '''
             }
+        }
+    }
+
+    post {
+        success {
+            echo "Deployment completed successfully 🚀"
+        }
+        failure {
+            echo "Pipeline failed ❌"
         }
     }
 }
