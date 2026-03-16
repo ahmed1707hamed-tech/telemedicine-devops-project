@@ -1,0 +1,98 @@
+- name: Setup DevOps tools
+  hosts: servers
+  become: yes
+
+  tasks:
+
+  - name: Update packages
+    yum:
+      name: "*"
+      state: latest
+
+  # ------------------------
+  # Docker
+  # ------------------------
+
+  - name: Install Docker
+    yum:
+      name: docker
+      state: present
+
+  - name: Start Docker
+    service:
+      name: docker
+      state: started
+      enabled: yes
+
+  - name: Add ec2-user to docker group
+    user:
+      name: ec2-user
+      groups: docker
+      append: yes
+
+  # ------------------------
+  # Jenkins
+  # ------------------------
+
+  - name: Install Java
+    yum:
+      name: java-17-amazon-corretto
+      state: present
+
+  - name: Add Jenkins repo
+    get_url:
+      url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+
+  - name: Import Jenkins key
+    rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+  - name: Install Jenkins
+    yum:
+      name: jenkins
+      state: present
+
+  - name: Start Jenkins
+    service:
+      name: jenkins
+      state: started
+      enabled: yes
+
+  # ------------------------
+  # Kubernetes tools
+  # ------------------------
+
+  - name: Install kubectl
+    get_url:
+      url: https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
+      dest: /usr/local/bin/kubectl
+      mode: '0755'
+
+  - name: Install Minikube
+    get_url:
+      url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+      dest: /usr/local/bin/minikube
+      mode: '0755'
+
+  # ------------------------
+  # Nginx
+  # ------------------------
+
+  - name: Enable nginx repo
+    command: amazon-linux-extras enable nginx1
+
+  - name: Clean yum cache
+    command: yum clean metadata
+
+  - name: Install nginx
+    yum:
+      name: nginx
+      state: present
+
+  - name: Start nginx
+    service:
+      name: nginx
+      state: started
+      enabled: yes

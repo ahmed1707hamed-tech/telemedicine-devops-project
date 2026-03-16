@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ahmed1707hamed-tech/telemedicine-devops-project.git'
+            }
+        }
+
+        stage('Stop Old Containers') {
+            steps {
+                sh 'docker rm -f telemedicine_backend telemedicine_frontend telemedicine_nginx telemedicine_db || true'
+            }
+        }
+
+        stage('Build Images') {
+            steps {
+                dir('docker') {
+                    sh 'docker compose build --parallel'
+                }
+            }
+        }
+
+        stage('Start Containers') {
+            steps {
+                dir('docker') {
+                    sh 'docker compose up -d backend frontend nginx db'
+                }
+            }
+        }
+
+        stage('Verify') {
+            steps {
+                sh 'docker ps'
+            }
+        }
+    }
+}
