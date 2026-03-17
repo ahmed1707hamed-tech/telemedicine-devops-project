@@ -17,7 +17,10 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-COPY --from=builder /app ./
+# ❗ ناخد بس الملفات المهمة
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/build ./build
 
 EXPOSE 3000
 
