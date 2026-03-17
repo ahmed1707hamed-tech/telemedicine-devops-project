@@ -12,6 +12,12 @@ class AppointmentCreate(BaseModel):
     date: str
 
 
+class AppointmentCreate(BaseModel):
+    patient_name: str
+    doctor_name: str
+    date: str
+
+
 @router.post("/appointment")
 def create_appointment(
         appointment: AppointmentCreate,

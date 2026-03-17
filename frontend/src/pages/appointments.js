@@ -29,12 +29,12 @@ export default function Appointments() {
   );
 
   return (
-    <div className="space-y-8 font-sans">
+    <div className="flex flex-col h-full min-h-[80vh] space-y-8 font-sans pb-10">
       <Head>
         <title>Appointments | Ahmed Hamed</title>
       </Head>
 
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-5 shrink-0">
         <div>
           <h1 className="text-2xl md:text-3xl font-black text-white tracking-tight">Appointments Registry</h1>
           <p className="text-slate-400 font-medium text-sm md:text-base">Manage and monitor all patient sessions.</p>
@@ -46,7 +46,7 @@ export default function Appointments() {
         </button>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col md:flex-row gap-4 shrink-0">
         <div className="relative flex-1 group">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 group-focus-within:text-blue-500 transition-colors" size={20} />
           <input 
@@ -64,12 +64,14 @@ export default function Appointments() {
       </div>
 
       {loading ? (
-        <div className="flex flex-col items-center justify-center h-80 gap-4">
+        <div className="flex flex-col items-center justify-center h-80 gap-4 shrink-0">
           <div className="w-12 h-12 border-4 border-slate-800 border-t-blue-500 rounded-full animate-spin"></div>
           <p className="text-slate-500 font-bold tracking-widest text-xs uppercase animate-pulse">Syncing Data...</p>
         </div>
       ) : (
-        <AppointmentTable appointments={filteredAppointments} />
+        <div className="flex-1 flex flex-col min-h-0">
+          <AppointmentTable appointments={filteredAppointments} />
+        </div>
       )}
     </div>
   );

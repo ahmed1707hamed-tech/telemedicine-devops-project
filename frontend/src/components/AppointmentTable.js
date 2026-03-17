@@ -18,11 +18,11 @@ const AppointmentTable = ({ appointments }) => {
   }
 
   return (
-    <div className="bg-slate-800/40 border border-slate-700/50 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-sm max-w-full">
-      <div className="overflow-x-auto w-full pb-4 -mb-4">
+    <div className="bg-slate-800/40 border border-slate-700/50 rounded-3xl shadow-2xl backdrop-blur-sm flex flex-col h-full max-w-full min-h-[300px]">
+      <div className="overflow-y-auto overflow-x-auto w-full flex-1 touch-auto pb-4">
         <table className="w-full text-left min-w-[650px]">
-          <thead>
-            <tr className="bg-slate-900/50 border-b border-slate-700/50">
+          <thead className="sticky top-0 z-10 bg-slate-900 border-b border-slate-700/50">
+            <tr>
               <th className="px-8 py-5 text-[11px] font-bold text-slate-500 uppercase tracking-[0.1em]">Patient Info</th>
               <th className="px-8 py-5 text-[11px] font-bold text-slate-500 uppercase tracking-[0.1em]">Assigned Doctor</th>
               <th className="px-8 py-5 text-[11px] font-bold text-slate-500 uppercase tracking-[0.1em]">Schedule Date</th>

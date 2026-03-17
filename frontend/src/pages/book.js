@@ -21,12 +21,21 @@ export default function BookAppointment() {
     e.preventDefault();
     setLoading(true);
     try {
-      // Correctly calling the API sending keys: patient_name, doctor_name, date
-      await createAppointment(formData);
+      const payload = {
+        patient_name: formData.patient_name,
+        doctor_name: formData.doctor_name,
+        date: formData.date
+      };
+      await createAppointment(payload);
       toast.success('Appointment booked successfully!');
       router.push('/appointments');
     } catch (err) {
-      toast.error('Scheduling failed. Please try again.');
+      let errorMsg = 'Scheduling failed. Please try again.';
+      const errorData = err?.response?.data;
+      if (errorData?.detail) {
+        errorMsg = Array.isArray(errorData.detail) ? errorData.detail[0]?.msg : errorData.detail;
+      }
+      toast.error(errorMsg);
       console.error(err);
     } finally {
       setLoading(false);

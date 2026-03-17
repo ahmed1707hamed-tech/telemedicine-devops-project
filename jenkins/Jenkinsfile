@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        COMPOSE_DIR = 'docker'
+        DOCKERHUB = "yourdockerhubusername"
+        COMPOSE_DIR = "docker"
     }
 
     stages {
@@ -19,11 +20,15 @@ pipeline {
             }
         }
 
-        stage('Stop Old Containers') {
+        stage('Docker Login') {
             steps {
-                sh '''
-                docker rm -f telemedicine_backend telemedicine_frontend telemedicine_nginx telemedicine_db || true
-                '''
+                withCredentials([usernamePassword(
+                    credentialsId: 'dockerhub',
+                    usernameVariable: 'USER',
+                    passwordVariable: 'PASS'
+                )]) {
+                    sh 'echo $PASS | docker login -u $USER --password-stdin'
+                }
             }
         }
 
@@ -31,37 +36,47 @@ pipeline {
             steps {
                 dir("${COMPOSE_DIR}") {
                     sh '''
-                    docker compose build
+                    docker build -t $DOCKERHUB/telemedicine-backend ./backend
+                    docker build -t $DOCKERHUB/telemedicine-frontend ./frontend
+                    docker build -t $DOCKERHUB/telemedicine-nginx ./nginx
                     '''
                 }
             }
         }
 
-        stage('Start Containers') {
-            steps {
-                dir("${COMPOSE_DIR}") {
-                    sh '''
-                    docker compose up -d
-                    '''
-                }
-            }
-        }
-
-        stage('Verify Containers') {
+        stage('Push Images') {
             steps {
                 sh '''
-                docker ps
+                docker push $DOCKERHUB/telemedicine-backend
+                docker push $DOCKERHUB/telemedicine-frontend
+                docker push $DOCKERHUB/telemedicine-nginx
                 '''
+            }
+        }
+
+        stage('Deploy Containers') {
+            steps {
+                sh '''
+                docker rm -f telemedicine_backend telemedicine_frontend telemedicine_nginx telemedicine_db || true
+                cd docker
+                docker compose up -d
+                '''
+            }
+        }
+
+        stage('Verify') {
+            steps {
+                sh 'docker ps'
             }
         }
     }
 
     post {
         success {
-            echo "Deployment completed successfully 🚀"
+            echo "CI/CD Pipeline Completed 🚀"
         }
         failure {
-            echo "Pipeline failed ❌"
+            echo "Pipeline Failed ❌"
         }
     }
 }

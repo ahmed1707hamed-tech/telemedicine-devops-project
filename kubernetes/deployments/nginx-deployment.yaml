@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: nginx
   template:
     metadata:
       labels:
-        app: backend
+        app: nginx
     spec:
       containers:
-      - name: backend
-        image: ahmed/telemedicine-backend:latest
+      - name: nginx
+        image: ahmed/telemedicine-nginx:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 80
