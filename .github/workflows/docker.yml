@@ -18,12 +18,20 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
+    # 🔥 Backend
     - name: Build & Push Backend
       run: |
         docker build -t ahmed7amed9/telemedicine-backend:latest ./backend
         docker push ahmed7amed9/telemedicine-backend:latest
 
+    # 🔥 Frontend
     - name: Build & Push Frontend
       run: |
         docker build -t ahmed7amed9/telemedicine-frontend:latest ./frontend
         docker push ahmed7amed9/telemedicine-frontend:latest
+
+    # 🔥 NGINX (الجديد)
+    - name: Build & Push Nginx
+      run: |
+        docker build -t ahmed7amed9/telemedicine-nginx:latest ./nginx
+        docker push ahmed7amed9/telemedicine-nginx:latest
