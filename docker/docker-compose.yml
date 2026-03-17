@@ -1,9 +1,7 @@
-version: "3.9"
-
 services:
 
   nginx:
-    image: ahmed7amed9/telemedicine-nginx:latest
+    build: ../nginx
     container_name: telemedicine_nginx
     ports:
       - "80:80"
@@ -15,7 +13,7 @@ services:
     restart: always
 
   frontend:
-    image: ahmed7amed9/telemedicine-frontend:latest
+    build: ../frontend
     container_name: telemedicine_frontend
     ports:
       - "3000:3000"
@@ -26,7 +24,7 @@ services:
     restart: always
 
   backend:
-    image: ahmed7amed9/telemedicine-backend:latest
+    build: ../backend
     container_name: telemedicine_backend
     ports:
       - "8000:8000"
