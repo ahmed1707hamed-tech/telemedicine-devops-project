@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: ahmed/telemedicine-nginx:latest
+        image: ahmed7amed9/telemedicine-nginx:latest
         ports:
         - containerPort: 80
         resources:

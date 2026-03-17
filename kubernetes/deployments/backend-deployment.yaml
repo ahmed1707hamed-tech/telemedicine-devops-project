@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ahmed/telemedicine-backend:latest
+        image: ahmed7amed9/telemedicine-backend:latest
         ports:
         - containerPort: 5000
 
