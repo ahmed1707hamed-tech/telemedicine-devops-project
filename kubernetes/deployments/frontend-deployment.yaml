@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  labels:
+    app: frontend
 spec:
   replicas: 1
   selector:
@@ -15,12 +17,13 @@ spec:
       containers:
       - name: frontend
         image: ahmed7amed9/telemedicine-frontend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
         resources:
           limits:
-            memory: "200Mi"
-            cpu: "200m"
+            memory: "256Mi"
+            cpu: "250m"
           requests:
-            memory: "100Mi"
+            memory: "128Mi"
             cpu: "100m"

@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
+  labels:
+    app: postgres
 spec:
   replicas: 1
   selector:
@@ -15,19 +17,20 @@ spec:
       containers:
       - name: postgres
         image: postgres:13
+        imagePullPolicy: IfNotPresent
         env:
         - name: POSTGRES_DB
           value: telemedicine
         - name: POSTGRES_USER
-          value: admin
+          value: myuser
         - name: POSTGRES_PASSWORD
-          value: admin123
+          value: mypassword
         ports:
         - containerPort: 5432
         resources:
           limits:
-            memory: "200Mi"
-            cpu: "200m"
+            memory: "256Mi"
+            cpu: "250m"
           requests:
-            memory: "100Mi"
+            memory: "128Mi"
             cpu: "100m"
