@@ -18,7 +18,18 @@ spec:
         ports:
         - containerPort: 5000
 
-        # 👇 هنا بالظبط
+        env:
+        - name: DATABASE_HOST
+          value: postgres-service
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: DATABASE_NAME
+          value: telemedicine
+        - name: DATABASE_USER
+          value: postgres
+        - name: DATABASE_PASSWORD
+          value: postgres
+
         resources:
           limits:
             memory: "200Mi"
