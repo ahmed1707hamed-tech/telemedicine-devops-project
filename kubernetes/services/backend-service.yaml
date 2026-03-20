@@ -11,4 +11,4 @@ spec:
   ports:
     - protocol: TCP
       port: 5000      # Nginx tries to connect to port 5000
-      targetPort: 8000  # The pod is now running on 8000, so we cleanly map 5000 to 8000!
+      targetPort: 5000  # The pod is now running on 8000, so we cleanly map 5000 to 8000!

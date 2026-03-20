@@ -30,4 +30,4 @@ spec:
           value: postgres
 
         ports:
-        - containerPort: 8000
+        - containerPort: 5000

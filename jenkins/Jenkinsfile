@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB = "yourdockerhubusername"
-        COMPOSE_DIR = "docker"
+        DOCKERHUB = "ahmed7amed9"
     }
 
     stages {
@@ -34,13 +33,11 @@ pipeline {
 
         stage('Build Images') {
             steps {
-                dir("${COMPOSE_DIR}") {
-                    sh '''
-                    docker build -t $DOCKERHUB/telemedicine-backend ./backend
-                    docker build -t $DOCKERHUB/telemedicine-frontend ./frontend
-                    docker build -t $DOCKERHUB/telemedicine-nginx ./nginx
-                    '''
-                }
+                sh '''
+                docker build -t $DOCKERHUB/telemedicine-backend ./backend
+                docker build -t $DOCKERHUB/telemedicine-frontend ./frontend
+                docker build -t $DOCKERHUB/telemedicine-nginx ./nginx
+                '''
             }
         }
 
@@ -54,19 +51,19 @@ pipeline {
             }
         }
 
-        stage('Deploy Containers') {
+        stage('Deploy to Kubernetes') {
             steps {
                 sh '''
-                docker rm -f telemedicine_backend telemedicine_frontend telemedicine_nginx telemedicine_db || true
-                cd docker
-                docker compose up -d
+                kubectl apply -f kubernetes/deployments/
+                kubectl apply -f kubernetes/services/
                 '''
             }
         }
 
         stage('Verify') {
             steps {
-                sh 'docker ps'
+                sh 'kubectl get pods'
+                sh 'kubectl get svc'
             }
         }
     }
