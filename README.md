@@ -151,15 +151,17 @@ Through this project, key DevOps concepts such as infrastructure as code, automa
 
 This project serves not only as a functional telemedicine system but also as a comprehensive DevOps case study, showcasing the ability to design, deploy, and manage modern cloud-native applications.
 
+---
+
+## ⭐ DevOps Lifecycle
+
+This project follows a complete DevOps pipeline:
+
+Code → Docker → Kubernetes → CI/CD → Monitoring
+
+---
+
 ## 👨‍💻 Author
 
 **Ahmed Hamed**  
 Cloud & DevOps Engineer 🚀
-
----
-
-## ⭐ Notes
-
-This project demonstrates a full **DevOps lifecycle**:
-
-Code → Docker → Kubernetes → CI/CD → Monitoring
