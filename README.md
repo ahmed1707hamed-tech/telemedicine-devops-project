@@ -95,7 +95,7 @@ kubectl rollout restart deployment backend
 
 ## 🔄 CI/CD Pipeline
 
-![GitHub Actions](./screenshots/GitHub actions.png)
+![GitHub Actions](./docs/screenshots/github-actions.png)
 
 * Automated pipeline using **GitHub Actions**
 * Steps:
