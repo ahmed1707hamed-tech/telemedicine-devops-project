@@ -63,7 +63,7 @@ docker push ahmed7amed9/telemedicine-nginx
 
 ## ☸️ Kubernetes Deployment
 
-![K8s](./docs/screenshots/architecture-diagram.png.png)
+![K8s](./docs/screenshots/architecture-diagram.png)
 
 ### 🔹 Apply all configs
 
