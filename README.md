@@ -1,21 +1,13 @@
 # 🚑 Telemedicine DevOps Project
 
-This project presents a complete end-to-end implementation of a **Telemedicine Platform** powered by modern **DevOps practices**.
+This project is a full-stack **Telemedicine Platform** built using modern **DevOps practices**. It enables users to manage doctors, patients, and appointments through a web-based dashboard.
 
-The system is designed to simulate a real-world healthcare application where patients can book appointments, and administrators can manage doctors, patients, and system operations through an interactive dashboard.
+The application is fully containerized with Docker and deployed on a Kubernetes cluster, ensuring scalability and high availability. A CI/CD pipeline using GitHub Actions automates building, pushing, and deployment processes.
 
-From a technical perspective, this project goes beyond traditional application development by focusing on **scalability, automation, and observability**. The application is fully containerized using Docker and deployed on a Kubernetes cluster, ensuring high availability and easy scalability.
+For monitoring and observability, Prometheus collects system metrics while Grafana provides real-time dashboards and alerts.
 
-A complete **CI/CD pipeline** is implemented using GitHub Actions to automate the process of building, testing, and deploying services. Each code update triggers an automated workflow that builds Docker images, pushes them to Docker Hub, and updates the running application.
-
-To ensure system reliability and performance monitoring, **Prometheus** is used for collecting metrics, while **Grafana** provides real-time visualization dashboards. Additionally, alerting rules are configured to detect critical issues such as high CPU and memory usage.
-
-This project reflects a real DevOps lifecycle:
-- Code → Build → Containerize → Deploy → Monitor
-
-It demonstrates the integration of multiple tools and technologies to deliver a production-ready, scalable, and maintainable system.
-
-
+This project demonstrates a complete DevOps workflow:
+Code → Docker → Kubernetes → CI/CD → Monitoring
 
 ---
 
@@ -161,7 +153,7 @@ This project serves not only as a functional telemedicine system but also as a c
 
 ## 👨‍💻 Author
 
-Ahmed Hamed
+**Ahmed Hamed**  
 Cloud & DevOps Engineer 🚀
 
 ---
