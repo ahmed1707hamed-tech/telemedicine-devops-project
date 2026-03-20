@@ -6,7 +6,7 @@ A full-stack telemedicine system built with **DevOps best practices** including 
 
 ## 🏗️ Architecture Diagram
 
-![Architecture](./screenshots/arch-diagram.png)
+![Architecture](./docs/screenshots/arch-diagram.png)
 
 ---
 
@@ -14,7 +14,7 @@ A full-stack telemedicine system built with **DevOps best practices** including 
 
 ### 🖥️ Frontend Dashboard
 
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./docs/screenshots/dashboard.png)
 
 * Admin dashboard to manage system
 * View appointments, doctors, and patients
@@ -24,7 +24,7 @@ A full-stack telemedicine system built with **DevOps best practices** including 
 
 ### 🔗 Backend API (Swagger)
 
-![Backend](./screenshots/backend-swagger.png)
+![Backend](./docs/screenshots/backend-swagger.png)
 
 * REST API using **FastAPI**
 * Handles:
@@ -37,7 +37,7 @@ A full-stack telemedicine system built with **DevOps best practices** including 
 
 ## 🐳 Docker & Images
 
-![Docker Hub](./screenshots/dockerHub.png)
+![Docker Hub](./docs/screenshots/dockerHub.png)
 
 ### 🔹 Build & Push Images
 
@@ -56,7 +56,7 @@ docker push ahmed7amed9/telemedicine-nginx
 
 ## ☸️ Kubernetes Deployment
 
-![K8s](./screenshots/arch.png)
+![K8s](./docs/screenshots/arch.png)
 
 ### 🔹 Apply all configs
 
@@ -93,9 +93,9 @@ kubectl rollout restart deployment backend
 
 ## 📡 Prometheus Monitoring
 
-![Prometheus Targets](./screenshots/prometheus-target.png)
+![Prometheus Targets](./docs/screenshots/prometheus-target.png)
 
-![Prometheus Alerts](./screenshots/prometheus-alert.png)
+![Prometheus Alerts](./docs/screenshots/prometheus-alert.png)
 
 * Collects metrics from:
 
@@ -111,7 +111,7 @@ kubectl rollout restart deployment backend
 
 ## 📊 Grafana Dashboard
 
-![Grafana](./screenshots/grafana.png)
+![Grafana](./docs/screenshots/grafana.png)
 
 * Visual dashboards for:
 
@@ -124,13 +124,13 @@ kubectl rollout restart deployment backend
 ## 🌐 Access Application
 
 ```bash
-http://<EC2-IP>:30007
+http://44.194.99.92:30007
 ```
 
 Swagger:
 
 ```bash
-http://<EC2-IP>:30007/api/docs
+http://44.194.99.92:30007/api/docs
 ```
 
 ---
