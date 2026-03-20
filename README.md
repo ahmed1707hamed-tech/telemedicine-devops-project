@@ -6,7 +6,7 @@ A full-stack telemedicine system built with **DevOps best practices** including 
 
 ## 🏗️ Architecture Diagram
 
-![Architecture](./docs/screenshots/arch.png)
+![Architecture](./docs/arch.png)
 
 ---
 
