@@ -6,7 +6,7 @@ A full-stack telemedicine system built with **DevOps best practices** including 
 
 ## 🏗️ Architecture Diagram
 
-![Architecture](./docs/screenshots/arch-diagram.png)
+![Architecture](./docs/screenshots/arch.png)
 
 ---
 
@@ -56,7 +56,7 @@ docker push ahmed7amed9/telemedicine-nginx
 
 ## ☸️ Kubernetes Deployment
 
-![K8s](./docs/screenshots/arch.png)
+![K8s](./docs/screenshots/architecture-diagram.png.png)
 
 ### 🔹 Apply all configs
 
